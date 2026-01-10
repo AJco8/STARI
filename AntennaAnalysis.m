@@ -50,24 +50,3 @@ xlabel("Frequency [GHz]")
 legend()
 hold off
 saveas(gcf,"Antenna Gain.jpg")
-%% Range
-
-range=@(x) Range(x,freq);
-figure(2)
-plot(freq,range(dipole),DisplayName="Half-wave Dipole")
-hold on
-plot(freq,range(turnstile),DisplayName="Turnstile")
-plot(freq,range(horn),DisplayName="Horn")
-plot(freq,range(bicone),DisplayName="Bi-Cone")
-plot(freq,range(helix),DisplayName="Helix")
-plot(freq,range(parabola),DisplayName="Parabola")
-plot(freq,range(yagi),DisplayName="Yagi")
-ylabel("Distance [km]")
-xlabel("Frequency [GHz]")
-legend()
-hold off
-saveas(gcf,"Antenna Range.jpg")
-%%
-function d = Range(gain,f)
-    d = 10*(gain - 32.44 - f*1000);
-end
